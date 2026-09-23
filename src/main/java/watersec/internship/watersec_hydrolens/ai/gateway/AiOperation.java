@@ -1,0 +1,11 @@
+package watersec.internship.watersec_hydrolens.ai.gateway;
+
+public enum AiOperation {
+    GENERATE_HOTEL_SPECIFICATION,
+    ESTIMATE_MISSING_VALUES,
+    GENERATE_RECOMMENDATIONS,
+    GENERATE_EXPLANATION,
+    ANALYZE_BENCHMARK,
+    FORECAST_CONSUMPTION,
+    DETECT_ANOMALIES
+}

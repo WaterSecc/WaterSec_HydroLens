@@ -1,0 +1,23 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hydrolens-backend
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      SERVER_PORT: 8081
+
+      WATERSEC_PUBLIC_API: "true"
+
+      HYDROLENS_AI_GATEWAY_MODE: ${HYDROLENS_AI_GATEWAY_MODE:-local-no-ml}
+      HYDROLENS_AI_VERSION: ${HYDROLENS_AI_VERSION:-llama-3.1}
+      HF_TOKEN: ${HF_TOKEN:-}
+      HF_MODEL: ${HF_MODEL:-meta-llama/Llama-3.1-8B-Instruct:nscale}
+      HF_BASE_URL: ${HF_BASE_URL:-https://router.huggingface.co/v1}
+
+      HYDROLENS_SESSION_TTL: PT60M
+      HYDROLENS_SESSION_CLEANUP_INTERVAL: PT5M
+      HYDROLENS_MAX_SESSIONS: 100
